@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect } from "react";
+import "./App.css";
+import Urlap from "./component/Urlap";
+import DataServices from "./model/DataService";
 
+const DS = new DataService();
 function App() {
+  function kuld(urlapAdat) {
+    console.log(urlapAdat);
+    useEffect(() => {
+      DS.postData(vegpont, urlapAdat);
+    }, []);
+  }
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>Űrlap</h1>
       </header>
+      <article>
+        <Urlap kuld={kuld} />
+      </article>
     </div>
   );
 }
